@@ -1,5 +1,6 @@
 package tw.edu.pu.s1100706
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -21,6 +22,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
@@ -47,9 +49,12 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
+    val context = LocalContext.current
     var appear by remember { mutableStateOf(true) }
-    Column{
-    Image(
+    Column{ 
+        
+
+        Image(
         painter = painterResource(id = R.drawable.maria),
         contentDescription = "圖片",
 
@@ -62,6 +67,15 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 
         modifier = modifier
     )
+        Button(onClick = {
+            var it = Intent(context, SecondActivity::class.java)
+            context.startActivity(it)
+        })
+        {
+            Text(text = "主要機構")
+        }
+
+
         Button(
             onClick = { appear = !appear }
         ) {
@@ -100,6 +114,9 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     }}
 
     }
+
+
+
 
 @Preview(showBackground = true)
 @Composable
