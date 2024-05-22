@@ -3,7 +3,6 @@ package tw.edu.pu.s1100706
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
@@ -12,12 +11,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import tw.edu.pu.s1100706.ui.theme.S1100706Theme
 
-class MainActivity : ComponentActivity() {
+class SecondActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -27,7 +25,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    Greeting2("Android")
                 }
             }
         }
@@ -35,27 +33,23 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Column{
-    Image(
-        painter = painterResource(id = R.drawable.maria),
-        contentDescription = "圖片",
+fun Greeting2(name: String, modifier: Modifier = Modifier) {
+    Column {
+        Text(
+            text = "主要機構",
+            fontSize = 25.sp,
+            color = Color.Red,
 
-    )
+            modifier = modifier
+        )
+    }
 
-    Text(
-        text = "簡介",
-        fontSize = 25.sp,
-        color = Color.Blue,
-
-        modifier = modifier
-    )
-}}
+}
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun GreetingPreview2() {
     S1100706Theme {
-        Greeting("Android")
+        Greeting2("Android")
     }
 }
